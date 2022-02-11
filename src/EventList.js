@@ -2,7 +2,16 @@ import React from 'react';
 // import NewEventForm from './NewEventForm';
 
 class EventList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const { events } = this.props;
+    console.log(events);
+    // const renderedList = events.map((event) => {
+    //     return
+    // })
+
     return (
       <section id="event-list__container">
         <div className="event">
