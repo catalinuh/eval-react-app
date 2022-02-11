@@ -1,5 +1,5 @@
 import React from 'react';
-import NewEventForm from './NewEventForm';
+// import NewEventForm from './NewEventForm';
 
 class EventList extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class EventList extends React.Component {
             <button className="delete-btn">Delete</button>
           </div>
         </div>
-        <NewEventForm />
+        {/* <NewEventForm /> */}
       </section>
     );
   }
