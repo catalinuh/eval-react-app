@@ -1,28 +1,42 @@
 import React from 'react';
+import Event from './Event';
 // import NewEventForm from './NewEventForm';
 
 class EventList extends React.Component {
-  constructor(props) {
-    super(props);
+  dateConversion(timestamp) {
+    let date = new Date(parseInt(timestamp));
+
+    let year = date.getFullYear();
+    let month =
+      date.getMonth() + 1 < 10
+        ? '0' + (date.getMonth() + 1)
+        : date.getMonth() + 1;
+    let day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    let newDate = [year, month, day].join('-');
+
+    return newDate;
   }
+
   render() {
     const { events } = this.props;
-    console.log(events);
-    // const renderedList = events.map((event) => {
-    //     return
-    // })
+    const renderedList = events.map((event) => {
+      const startDate = this.dateConversion(event.startDate);
+      const endDate = this.dateConversion(event.endDate);
+
+      return (
+        <Event
+          key={event.id}
+          eventName={event.eventName}
+          startDate={startDate}
+          endDate={endDate}
+          id={event.id}
+        />
+      );
+    });
 
     return (
       <section id="event-list__container">
-        <div className="event">
-          <input className="event-field" type="text" aria-label="Event name" />
-          <input className="start-field" type="date" aria-label="Start date" />
-          <input className="end-field" type="date" aria-label="End date" />
-          <div id="edit-delete">
-            <button className="edit-btn">Edit</button>
-            <button className="delete-btn">Delete</button>
-          </div>
-        </div>
+        {renderedList}
         {/* <NewEventForm /> */}
       </section>
     );
