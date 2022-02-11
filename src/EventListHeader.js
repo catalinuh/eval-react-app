@@ -2,10 +2,13 @@ import React from 'react';
 
 class EventListHeader extends React.Component {
   render() {
+    const { addNewClick } = this.props;
     return (
       <div>
         <header className="button-header">
-          <button id="add-new-btn">Add New</button>
+          <button onClick={addNewClick} id="add-new-btn">
+            Add New
+          </button>
         </header>
         <section className="event-table">
           <ul className="event-table__header">

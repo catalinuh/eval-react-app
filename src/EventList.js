@@ -1,6 +1,6 @@
 import React from 'react';
 import Event from './Event';
-// import NewEventForm from './NewEventForm';
+import NewEventForm from './NewEventForm';
 
 class EventList extends React.Component {
   dateConversion(timestamp) {
@@ -37,7 +37,10 @@ class EventList extends React.Component {
     return (
       <section id="event-list__container">
         {renderedList}
-        {/* <NewEventForm /> */}
+        <NewEventForm
+          show={this.props.showForm}
+          addNewClick={this.props.addNewClick}
+        />
       </section>
     );
   }

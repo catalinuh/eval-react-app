@@ -10,7 +10,9 @@ class App extends React.Component {
 
     this.state = {
       events: [],
+      showForm: false,
     };
+    this.addNewClick = this.addNewClick.bind(this);
   }
 
   async componentDidMount() {
@@ -25,11 +27,21 @@ class App extends React.Component {
     });
   }
 
+  addNewClick() {
+    this.setState((prevState) => ({
+      showForm: !prevState.showForm,
+    }));
+  }
+
   render() {
     return (
       <main className="content">
-        <EventListHeader />
-        <EventList events={this.state.events} />
+        <EventListHeader addNewClick={this.addNewClick} />
+        <EventList
+          events={this.state.events}
+          showForm={this.state.showForm}
+          addNewClick={this.addNewClick}
+        />
       </main>
     );
   }
