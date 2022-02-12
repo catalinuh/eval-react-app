@@ -1,8 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 
 class Event extends React.Component {
   render() {
-    let { eventName, startDate, endDate, id } = this.props;
+    let { eventName, startDate, endDate, id, deleteEvent } = this.props;
+
     return (
       <div className="event" id={id}>
         <input
@@ -28,7 +30,9 @@ class Event extends React.Component {
         />
         <div id="edit-delete">
           <button className="edit-btn">Edit</button>
-          <button className="delete-btn">Delete</button>
+          <button id={id} onClick={deleteEvent} className="delete-btn">
+            Delete
+          </button>
         </div>
       </div>
     );

@@ -21,17 +21,33 @@ class App extends React.Component {
   }
 
   async getEvents() {
-    const response = await axios.get('http://localhost:4000/events');
+    try {
+      const response = await axios.get('http://localhost:4000/events');
 
-    this.setState({
-      events: response.data,
-    });
+      this.setState({
+        events: response.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   addNewClick() {
     this.setState((prevState) => ({
       showForm: !prevState.showForm,
     }));
+  }
+
+  async deleteEvent(event) {
+    event.preventDefault();
+
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/events/${event.target.id}`
+      );
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
@@ -45,6 +61,7 @@ class App extends React.Component {
           events={this.state.events}
           showForm={this.state.showForm}
           addNewClick={this.addNewClick}
+          deleteEvent={this.deleteEvent}
         />
       </main>
     );
