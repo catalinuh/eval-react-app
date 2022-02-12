@@ -36,7 +36,10 @@ class App extends React.Component {
   render() {
     return (
       <main className="content">
-        <EventListHeader addNewClick={this.addNewClick} />
+        <EventListHeader
+          addNewClick={this.addNewClick}
+          showForm={this.state.showForm}
+        />
         <EventList
           events={this.state.events}
           showForm={this.state.showForm}

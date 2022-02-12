@@ -2,12 +2,12 @@ import React from 'react';
 
 class EventListHeader extends React.Component {
   render() {
-    const { addNewClick } = this.props;
+    const { addNewClick, showForm } = this.props;
     return (
       <div>
         <header className="button-header">
           <button onClick={addNewClick} id="add-new-btn">
-            Add New
+            {!showForm ? 'Add New' : 'Close'}
           </button>
         </header>
         <section className="event-table">
