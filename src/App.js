@@ -12,6 +12,7 @@ class App extends React.Component {
       events: [],
       showForm: false,
     };
+
     this.addNewClick = this.addNewClick.bind(this);
   }
 
