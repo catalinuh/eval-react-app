@@ -38,13 +38,9 @@ class App extends React.Component {
     }));
   }
 
-  async deleteEvent(event) {
-    event.preventDefault();
-
+  async deleteEvent(id) {
     try {
-      const response = await axios.delete(
-        `http://localhost:4000/events/${event.target.id}`
-      );
+      await axios.delete(`http://localhost:4000/events/${id}`);
     } catch (err) {
       console.log(err);
     }
