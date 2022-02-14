@@ -6,9 +6,9 @@ class Event extends React.Component {
     super(props);
 
     this.state = {
-      eventName: props.eventName,
-      startDate: props.startDate,
-      endDate: props.endDate,
+      eventName: '',
+      startDate: '',
+      endDate: '',
       disabled: true,
       editOrSave: 'Edit',
       deleteOrCancel: 'Delete',
@@ -16,6 +16,7 @@ class Event extends React.Component {
 
     this.editEvent = this.editEvent.bind(this);
     this.deleteOrCancel = this.deleteOrCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   editEvent() {
@@ -27,6 +28,8 @@ class Event extends React.Component {
         deleteOrCancel: 'Cancel',
       });
     } else {
+      console.log('u clicked save!');
+
       this.setState({
         disabled: true,
         editOrSave: 'Edit',
@@ -48,12 +51,19 @@ class Event extends React.Component {
     }
   }
 
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
   render() {
     let { eventName, startDate, endDate, id } = this.props;
 
     return (
       <div className="event" id={id}>
         <input
+          onChange={this.handleChange}
           value={eventName}
           className="event-field"
           type="text"
@@ -61,6 +71,7 @@ class Event extends React.Component {
           disabled={this.state.disabled}
         />
         <input
+          onChange={this.handleChange}
           value={startDate}
           className="start-field"
           type="date"
@@ -68,6 +79,7 @@ class Event extends React.Component {
           disabled={this.state.disabled}
         />
         <input
+          onChange={this.handleChange}
           value={endDate}
           className="end-field"
           type="date"

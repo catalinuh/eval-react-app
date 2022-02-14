@@ -46,6 +46,14 @@ class App extends React.Component {
     }
   }
 
+  async editEvent(id, newEvent) {
+    try {
+      await axios.put(`http://localhost:4000/events/${id}`, newEvent);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   render() {
     return (
       <main className="content">
@@ -58,6 +66,7 @@ class App extends React.Component {
           showForm={this.state.showForm}
           addNewClick={this.addNewClick}
           deleteEvent={this.deleteEvent}
+          editEvent={this.editEvent}
         />
       </main>
     );
