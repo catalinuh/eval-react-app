@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import EventListHeader from './EventListHeader';
 import EventList from './EventList';
+import { getEvents } from '../apirequests';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,19 +18,13 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    this.getEvents();
-  }
-
-  async getEvents() {
-    try {
-      const response = await axios.get('http://localhost:4000/events');
+    getEvents().then((data) => {
+      const events = data.data;
 
       this.setState({
-        events: response.data,
+        events,
       });
-    } catch (err) {
-      console.log(err);
-    }
+    });
   }
 
   addNewClick() {
