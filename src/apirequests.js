@@ -16,7 +16,7 @@ export const deleteEvent = async (id) => {
   }
 };
 
-export const editEvent = async (id, newEvent) => {
+export const saveEvent = async (id, newEvent) => {
   try {
     return await axios.put(`http://localhost:4000/events/${id}`, newEvent);
   } catch (err) {

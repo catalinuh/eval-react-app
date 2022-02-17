@@ -1,5 +1,6 @@
 import React from 'react';
 import { deleteEvent } from '../apirequests';
+import { saveEvent } from '../apirequests';
 
 class Event extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Event extends React.Component {
         deleteOrCancel: 'Cancel',
       });
     } else {
-      console.log('u clicked save!');
+      saveEvent(this.props.id, this.props);
 
       this.setState({
         disabled: true,
