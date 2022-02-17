@@ -1,4 +1,5 @@
 import React from 'react';
+import { deleteEvent } from '../apirequests';
 
 class Event extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class Event extends React.Component {
         deleteOrCancel: 'Delete',
       });
     } else {
-      this.props.deleteEvent(this.props.id);
+      deleteEvent(this.props.id);
     }
   }
 

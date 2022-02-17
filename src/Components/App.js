@@ -33,14 +33,6 @@ class App extends React.Component {
     }));
   }
 
-  async deleteEvent(id) {
-    try {
-      await axios.delete(`http://localhost:4000/events/${id}`);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   async editEvent(id, newEvent) {
     try {
       await axios.put(`http://localhost:4000/events/${id}`, newEvent);
@@ -60,7 +52,6 @@ class App extends React.Component {
           events={this.state.events}
           showForm={this.state.showForm}
           addNewClick={this.addNewClick}
-          deleteEvent={this.deleteEvent}
           editEvent={this.editEvent}
         />
       </main>

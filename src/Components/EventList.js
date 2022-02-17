@@ -18,7 +18,7 @@ class EventList extends React.Component {
   }
 
   render() {
-    const { events, deleteEvent } = this.props;
+    const { events } = this.props;
     const renderedList = events.map((event) => {
       const startDate = this.dateConversion(event.startDate);
       const endDate = this.dateConversion(event.endDate);
@@ -30,7 +30,6 @@ class EventList extends React.Component {
           startDate={startDate}
           endDate={endDate}
           id={event.id}
-          deleteEvent={deleteEvent}
         />
       );
     });
