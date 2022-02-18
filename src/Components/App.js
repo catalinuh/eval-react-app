@@ -64,12 +64,6 @@ class App extends React.Component {
         ) : (
           <UpcomingEvents events={this.state.events} />
         )}
-        {/* <EventList
-          events={this.state.events}
-          showForm={this.state.showForm}
-          addNewClick={this.addNewClick}
-          editEvent={this.editEvent}
-        /> */}
       </main>
     );
   }

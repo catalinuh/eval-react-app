@@ -33,6 +33,7 @@ class UpcomingEvents extends React.Component {
           startDate={startDate}
           endDate={endDate}
           id={event.id}
+          upcoming={true}
         />
       );
     });

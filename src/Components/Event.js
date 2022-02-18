@@ -59,7 +59,7 @@ class Event extends React.Component {
   }
 
   render() {
-    let { eventName, startDate, endDate, id } = this.props;
+    let { eventName, startDate, endDate, id, upcoming } = this.props;
 
     return (
       <div className="event" id={id}>
@@ -87,14 +87,41 @@ class Event extends React.Component {
           aria-label="End date"
           disabled={this.state.disabled}
         />
-        <div id="edit-delete">
-          <button id={id} onClick={this.editEvent} className="edit-btn">
-            {this.state.editOrSave}
-          </button>
-          <button id={id} onClick={this.deleteOrCancel} className="delete-btn">
-            {this.state.deleteOrCancel}
-          </button>
-        </div>
+        {!upcoming ? (
+          <div id="edit-delete">
+            <button id={id} onClick={this.editEvent} className="edit-btn">
+              {this.state.editOrSave}
+            </button>
+            <button
+              id={id}
+              onClick={this.deleteOrCancel}
+              className="delete-btn"
+            >
+              {this.state.deleteOrCancel}
+            </button>
+          </div>
+        ) : (
+          <div id="edit-delete" className="hide-buttons">
+            <button id={id} onClick={this.editEvent} className="edit-btn">
+              {this.state.editOrSave}
+            </button>
+            <button
+              id={id}
+              onClick={this.deleteOrCancel}
+              className="delete-btn"
+            >
+              {this.state.deleteOrCancel}
+            </button>
+          </div>
+        )}
+        {/* // <div id="edit-delete">
+        //   <button id={id} onClick={this.editEvent} className="edit-btn">
+        //     {this.state.editOrSave}
+        //   </button>
+        //   <button id={id} onClick={this.deleteOrCancel} className="delete-btn">
+        //     {this.state.deleteOrCancel}
+        //   </button>
+        // </div> */}
       </div>
     );
   }

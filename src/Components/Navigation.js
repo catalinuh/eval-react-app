@@ -5,7 +5,7 @@ class Navigation extends React.Component {
     return (
       <div className="navigation">
         <div id="title">
-          <h2>Nav Bar</h2>
+          <h2>Navigation</h2>
         </div>
         <nav>
           <span id="home" onClick={(e) => this.props.clickLink(e)}>
