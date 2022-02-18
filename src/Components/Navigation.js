@@ -7,7 +7,14 @@ class Navigation extends React.Component {
         <div id="title">
           <h2>Nav Bar</h2>
         </div>
-        <nav></nav>
+        <nav>
+          <span id="home" onClick={(e) => this.props.clickLink(e)}>
+            Home
+          </span>
+          <span id="upcoming-events" onClick={(e) => this.props.clickLink(e)}>
+            Upcoming Events
+          </span>
+        </nav>
       </div>
     );
   }
