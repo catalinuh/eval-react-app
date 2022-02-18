@@ -101,14 +101,20 @@ class Event extends React.Component {
             </button>
           </div>
         ) : (
-          <div id="edit-delete" className="hide-buttons">
-            <button id={id} onClick={this.editEvent} className="edit-btn">
+          <div id="edit-delete">
+            <button
+              id={id}
+              onClick={this.editEvent}
+              className="edit-btn"
+              disabled
+            >
               {this.state.editOrSave}
             </button>
             <button
               id={id}
               onClick={this.deleteOrCancel}
               className="delete-btn"
+              disabled
             >
               {this.state.deleteOrCancel}
             </button>
