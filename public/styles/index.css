@@ -101,3 +101,9 @@ div#edit-delete > button:hover {
   display: flex;
   flex-flow: column wrap;
 }
+
+.navigation {
+  width: 100%;
+  background-color: #5593c7;
+  padding: 15px;
+}

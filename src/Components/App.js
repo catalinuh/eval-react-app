@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import EventListHeader from './EventListHeader';
 import EventList from './EventList';
+import Navigation from './Navigation';
 import { getEvents } from '../apirequests';
 
 class App extends React.Component {
@@ -36,6 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <main className="content">
+        <Navigation />
         <EventListHeader
           addNewClick={this.addNewClick}
           showForm={this.state.showForm}
